@@ -1,0 +1,24 @@
+type UserOutPut {
+  id: Int!
+  name: String!
+  email: String!
+  age: Int!
+  created_at: String!
+}
+
+input UserInput {
+  name: String!
+  email: String!
+  password: String!
+  age: Int!
+}
+
+type Query {
+  user(email: String!): UserOutPut!
+}
+
+type Mutation {
+  createUser(data: UserInput!): UserOutPut!
+  deleteUser(email: String!, password: String!): Boolean!
+  updateUser(id: Int!, password: String!, data: UserInput!): Boolean!
+}
